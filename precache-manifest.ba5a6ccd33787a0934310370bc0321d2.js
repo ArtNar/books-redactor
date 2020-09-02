@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "aeaa442c830a13af29d31be2c2a7b8f3",
+    "revision": "c2b8cdd59c97cfe80127fd45e1aff1f7",
     "url": "/books-redactor/index.html"
   },
   {
-    "revision": "0dcd9ef6bbfd4dbf27a0",
+    "revision": "41df6f94c99e94a36544",
     "url": "/books-redactor/static/css/3.0b5af59f.chunk.css"
   },
   {
@@ -16,11 +16,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/books-redactor/static/css/5.922d2a29.chunk.css"
   },
   {
-    "revision": "73ce273915d344519e51",
+    "revision": "0a019e91569913a45ea3",
     "url": "/books-redactor/static/css/6.2b475783.chunk.css"
   },
   {
-    "revision": "3e783b10880d18ac5d87",
+    "revision": "56991c353f446595c412",
     "url": "/books-redactor/static/css/main.96b076ba.chunk.css"
   },
   {
@@ -32,12 +32,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/books-redactor/static/js/2.82f0f884.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "0dcd9ef6bbfd4dbf27a0",
-    "url": "/books-redactor/static/js/3.51ba7c18.chunk.js"
+    "revision": "41df6f94c99e94a36544",
+    "url": "/books-redactor/static/js/3.ec5a11dd.chunk.js"
   },
   {
     "revision": "3453b8997016469371284a28c0e873e2",
-    "url": "/books-redactor/static/js/3.51ba7c18.chunk.js.LICENSE.txt"
+    "url": "/books-redactor/static/js/3.ec5a11dd.chunk.js.LICENSE.txt"
   },
   {
     "revision": "18134166e2f6e5364228",
@@ -48,15 +48,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/books-redactor/static/js/5.184ea45b.chunk.js"
   },
   {
-    "revision": "73ce273915d344519e51",
-    "url": "/books-redactor/static/js/6.ea09c21d.chunk.js"
+    "revision": "0a019e91569913a45ea3",
+    "url": "/books-redactor/static/js/6.402a4377.chunk.js"
   },
   {
-    "revision": "3e783b10880d18ac5d87",
-    "url": "/books-redactor/static/js/main.7447eeb3.chunk.js"
+    "revision": "56991c353f446595c412",
+    "url": "/books-redactor/static/js/main.e1b09b7f.chunk.js"
   },
   {
-    "revision": "28b1fe6f805f499285f8",
-    "url": "/books-redactor/static/js/runtime-main.b650b00f.js"
+    "revision": "c0ef41105583d20b87d0",
+    "url": "/books-redactor/static/js/runtime-main.1699ea32.js"
   }
 ]);
