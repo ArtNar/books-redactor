@@ -2,6 +2,7 @@
   "name": "books-redactor",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://artnar.github.io/books-redactor/",
   "dependencies": {
     "@bem-react/classname": "^1.5.8",
     "@csstools/normalize.css": "^11.0.1",
@@ -22,7 +23,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
