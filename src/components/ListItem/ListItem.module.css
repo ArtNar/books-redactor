@@ -1,0 +1,19 @@
+@import '~utils/styles/variables.css';
+
+.list {
+    position: relative;
+    width: 100%;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    box-sizing: border-box;
+    padding: var(--padding) calc(var(--padding) * 1.5);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.list__text {
+    flex: 1 1 auto;
+}

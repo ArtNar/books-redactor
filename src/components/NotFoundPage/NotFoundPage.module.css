@@ -1,0 +1,15 @@
+@import '~utils/styles/variables.css';
+
+.nf-page {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nf-page__description {
+    padding: var(--padding);
+    text-align: center;
+}

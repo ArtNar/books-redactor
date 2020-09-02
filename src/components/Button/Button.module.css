@@ -1,0 +1,34 @@
+@import '~utils/styles/variables.css';
+
+.button {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+
+    display: inline-flex;
+    align-items: center;
+
+    padding: calc(var(--padding) / 2) var(--padding);
+    outline: 0;
+    text-align: center;
+    white-space: nowrap;
+
+    border: var(--border-size) solid transparent;
+    border-radius: var(--border-radius);
+
+    background-color: var(--color-control);
+    color: var(--color-control-text);
+}
+
+.button__content {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button_disabled {
+    cursor: default;
+    pointer-events: none;
+}

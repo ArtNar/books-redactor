@@ -1,0 +1,16 @@
+@import '~utils/styles/variables.css';
+
+.list {
+    outline: none;
+}
+
+.list__title {
+    padding: var(--padding) calc(var(--padding) * 1.5) calc(var(--padding) / 2);
+}
+
+.list__content {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}

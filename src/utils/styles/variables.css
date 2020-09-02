@@ -1,0 +1,14 @@
+:root {
+    --padding: 16px;
+    --border-size: 2px;
+    --border-radius: 8px;
+
+    --color-background: #F1F5F9;
+    --color-border: #CFD8E3;
+    --color-control: #6875F5;
+    --color-control-text: #FFF;
+
+    --color-error: #E02424;
+
+    --font-size-s: 12px;
+}

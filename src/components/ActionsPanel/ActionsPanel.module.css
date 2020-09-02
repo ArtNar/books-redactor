@@ -1,0 +1,7 @@
+@import '~utils/styles/variables.css';
+
+.actions-panel {
+    margin-bottom: var(--padding);
+    display: flex;
+    justify-content: flex-end;
+}
