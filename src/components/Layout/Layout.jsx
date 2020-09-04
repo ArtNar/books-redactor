@@ -10,13 +10,15 @@ const Layout = ({
     title,
 }) => (
     <div className={cn()}>
-        {title && (
-            <div className={cn('title')}>
-                <h2>{title}</h2>
+        <div className={cn('inner')}>
+            {title && (
+                <div className={cn('title')}>
+                    <h2>{title}</h2>
+                </div>
+            )}
+            <div className={cn('content')}>
+                {children}
             </div>
-        )}
-        <div className={cn('content')}>
-            {children}
         </div>
     </div>
 )

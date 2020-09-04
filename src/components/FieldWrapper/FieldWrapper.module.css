@@ -1,0 +1,9 @@
+@import '~utils/styles/variables.css';
+
+.field-wrapper {
+    padding-bottom: calc(var(--padding) * 1.5);
+}
+
+.field-wrapper_collapsed {
+    padding-bottom: 0;
+}

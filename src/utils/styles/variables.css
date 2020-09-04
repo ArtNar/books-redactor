@@ -1,7 +1,8 @@
 :root {
     --padding: 16px;
-    --border-size: 2px;
+    --border-size: 1px;
     --border-radius: 8px;
+    --max-app-width: 800px;
 
     --color-background: #F1F5F9;
     --color-border: #CFD8E3;

@@ -51,6 +51,11 @@ const Input = ({
 
     return (
         <div className={cx(cn('wrapper', className))}>
+            {label && (
+                <div className={cn('label')}>
+                    {label}
+                </div>
+            )}
             <div className={cn()}>
                 <input
                     {...rest}

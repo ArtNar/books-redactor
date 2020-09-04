@@ -4,6 +4,7 @@ import { Button }       from 'components/Button'
 import { Form }         from 'components/forms/Form'
 import { TextField }    from 'components/forms/TextField'
 import { DateField }    from 'components/forms/DateField'
+import { NumberField }  from 'components/forms/NumberField'
 
 const BookFormView = ({
     values,
@@ -22,6 +23,7 @@ const BookFormView = ({
         disabled: disabledProp || isSubmitting,
         onBlur: handleBlur,
         onChange: handleChange,
+        placeholder: 'Введите данные',
     }
 
     return (
@@ -29,14 +31,42 @@ const BookFormView = ({
             <TextField
                 {...fieldProps}
                 label="Название"
-                placeholder="Введите данные"
+                name="bookName"
+            />
+            <TextField
+                {...fieldProps}
+                label="Список авторов"
                 name="name"
+            />
+            <NumberField
+                {...fieldProps}
+                label="Количество страниц"
+                name="amountOfPages"
+            />
+            <TextField
+                {...fieldProps}
+                label="Название издательства"
+                name="publishingHouseName"
+            />
+            <NumberField
+                {...fieldProps}
+                label="Год публикации"
+                name="publishYear"
             />
             <DateField
                 {...fieldProps}
                 label="Дата выхода в тираж"
-                placeholder="Введите данные"
-                name="printDate"
+                name="releaseDate"
+            />
+            <TextField
+                {...fieldProps}
+                label="ISBN"
+                name="isbn"
+            />
+            <TextField
+                {...fieldProps}
+                label="Изображение"
+                name="image"
             />
             <Button
                 type="submit"

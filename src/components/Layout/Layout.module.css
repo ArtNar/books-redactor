@@ -3,9 +3,17 @@
 .layout {
     height: 100%;
     width: 100%;
-    padding: calc(var(--padding) * 2);
+
+    display: flex;
+    justify-content: center;
+}
+
+.layout__inner {
+    max-width: var(--max-app-width);
     display: flex;
     flex-direction: column;
+    flex: 1;
+    padding: calc(var(--padding) * 2);
 }
 
 .layout__title {

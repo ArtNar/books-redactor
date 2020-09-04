@@ -7,3 +7,7 @@ export const number = Yup
 
 export const integer = number
     .integer(messages.isInteger)
+
+export const integerRequired = number
+    .integer(messages.isInteger)
+    .required(messages.required)

@@ -12,7 +12,7 @@ export const routes = [
         path: '/create',
         name: 'createBook',
         component: lazy(() => import('containers/BookPage')),
-        title: 'Создать',
+        title: 'Добавить новую книгу',
     },
     {
         path: '*',

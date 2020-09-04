@@ -23,6 +23,10 @@
 
 }
 
+.input__label {
+    padding-bottom: calc(var(--padding) / 2);
+}
+
 .input__error {
     font-size: var(--font-size-s);
     color: var(--color-error);

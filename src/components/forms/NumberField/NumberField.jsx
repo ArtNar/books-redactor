@@ -3,12 +3,12 @@ import React            from 'react'
 import { Input }        from 'components/Input'
 import { BaseField }    from 'components/forms/BaseField'
 
-const DateField = (props) => (
+const NumberField = (props) => (
     <BaseField
         {...props}
         component={Input}
-        type="date"
+        type="number"
     />
 )
 
-export default DateField
+export default NumberField
