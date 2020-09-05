@@ -1,5 +1,14 @@
 @import '~utils/styles/variables.css';
 
 .list-cell {
+    flex: 1;
+    overflow-wrap: break-word;
+}
 
+.list-cell__label {
+    font-weight: 600;
+}
+
+.list-cell:not(:last-child) {
+    margin-bottom: var(--padding);
 }

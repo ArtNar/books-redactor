@@ -1,5 +1,5 @@
 import React, { useMemo }               from 'react'
-import { useHistory }                   from 'react-router-dom'
+import { useHistory, useParams }        from 'react-router-dom'
 import uniqId                           from 'uniqid'
 import { getInitialValuesFromFields }   from 'utils/helpers/getInitialValuesFromFields'
 import { BookForm, fields }              from 'containers/BookForm'
@@ -18,20 +18,28 @@ const getActions = ({ onCancel }) => [
 
 const BookPage = () => {
     const history = useHistory()
+    const { bookId } = useParams()
     const { data = [], loading } = useQueryStorage(BOOKS_STORAGE_PATH)
     const [saveData] = useMutationStorage(BOOKS_STORAGE_PATH)
 
     const redirectToHomePage = () => history.push('/')
 
     const handleSubmit = async (values) => {
+        if (loading) {
+            return
+        }
+
+        const currentBookId = values.id || uniqId()
+        const newData = [
+            ...data.filter(({ id }) => id !== currentBookId),
+            {
+                id: currentBookId,
+                ...values,
+            },
+        ]
+
         try {
-            await saveData([
-                ...data,
-                {
-                    id: values.id || uniqId(),
-                    ...values,
-                },
-            ])
+            await saveData(newData)
 
             redirectToHomePage()
         } catch (error) {
@@ -43,9 +51,14 @@ const BookPage = () => {
         console.log(error, 'error')
     }
 
+    const bookData = bookId
+        ? data.find(({ id }) => id === bookId)
+        : {}
+
     const initialValues = useMemo(() => ({
         ...getInitialValuesFromFields(fields),
-    }), [])
+        ...bookData,
+    }), [fields, bookData])
 
     return (
         <>
@@ -58,6 +71,7 @@ const BookPage = () => {
                 initialValues={initialValues}
                 onSubmit={handleSubmit}
                 onError={handleError}
+                disabled={loading}
             />
         </>
     )

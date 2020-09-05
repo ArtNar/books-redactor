@@ -15,6 +15,12 @@ export const routes = [
         title: 'Добавить новую книгу',
     },
     {
+        path: '/edit/:bookId',
+        name: 'editBook',
+        component: lazy(() => import('containers/BookPage')),
+        title: 'Изменить книгу',
+    },
+    {
         path: '*',
         name: 'notfound',
         component: lazy(() => import('components/NotFoundPage')),

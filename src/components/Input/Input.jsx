@@ -56,7 +56,7 @@ const Input = ({
                     {label}
                 </div>
             )}
-            <div className={cn()}>
+            <div className={cn({ disabled })}>
                 <input
                     {...rest}
                     className={cn('inner')}
@@ -100,6 +100,7 @@ Input.propTypes = {
     required: PropTypes.bool,
     type: PropTypes.string,
     value: PropTypes.oneOfType([
+        PropTypes.number,
         PropTypes.string,
         PropTypes.instanceOf(Date),
     ]),

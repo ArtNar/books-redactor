@@ -3,3 +3,12 @@
 .list-item {
 
 }
+
+.list-item__inner {
+    display: flex;
+    flex-direction: column;
+}
+
+.list-item:not(:last-child) {
+    margin-bottom: calc(var(--padding) / 2);
+}

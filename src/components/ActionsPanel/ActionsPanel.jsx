@@ -18,6 +18,7 @@ const ActionsPanel = ({
         }) => (
             <Button
                 {...rest}
+                className={cn('button')}
                 key={key}
                 onClick={onClick}
             >

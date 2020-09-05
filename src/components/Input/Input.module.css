@@ -7,6 +7,10 @@
     border-radius: var(--border-radius);
 }
 
+.input_disabled {
+    opacity: .5;
+}
+
 .input__inner {
     color: currentColor;
     outline: 0;

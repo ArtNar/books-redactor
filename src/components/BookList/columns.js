@@ -8,7 +8,7 @@ export default [
         key: 'authors',
         label: 'Авторы',
         render: ({ authors }) => (Array.isArray(authors)
-            ? authors.join(', ')
+            ? authors.map(({ surname, name }) => `${surname} ${name}`).join(', ')
             : null)
         ,
     },
@@ -16,6 +16,11 @@ export default [
         key: 'amountOfPages',
         label: 'Количество страниц',
         render: ({ amountOfPages }) => (amountOfPages),
+    },
+    {
+        key: 'publishingHouseName',
+        label: 'Название издательства',
+        render: ({ publishingHouseName }) => (publishingHouseName),
     },
     {
         key: 'publishYear',

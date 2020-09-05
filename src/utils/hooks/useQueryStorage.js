@@ -7,11 +7,7 @@ export const useQueryStorage = (itemKey) => {
 
     const getStorageData = async () => localStorage.getItem(itemKey)
 
-    useEffect(() => {
-        if (!itemKey) {
-            return
-        }
-
+    const fetchData = () => {
         getStorageData()
             .then((result) => {
                 if (result) {
@@ -20,11 +16,20 @@ export const useQueryStorage = (itemKey) => {
             })
             .catch((error) => setErrors(error))
             .finally(() => setLoading(false))
+    }
+
+    useEffect(() => {
+        if (!itemKey) {
+            return
+        }
+
+        fetchData()
     }, [itemKey])
 
     return {
         data,
         loading,
         errors,
+        refetch: fetchData,
     }
 }

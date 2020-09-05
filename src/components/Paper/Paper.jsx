@@ -10,6 +10,7 @@ const Paper = ({
     className,
     elevation = 0,
     padded,
+    color,
     ...rest
 }) => (
     <div
@@ -17,6 +18,7 @@ const Paper = ({
         className={cx(cn({
             elevation,
             padded,
+            color,
         }), className)}
     />
 )
@@ -26,6 +28,7 @@ Paper.propTypes = {
     className: PropTypes.string,
     elevation: PropTypes.number,
     padded: PropTypes.bool,
+    color: PropTypes.string,
 }
 
 export default Paper

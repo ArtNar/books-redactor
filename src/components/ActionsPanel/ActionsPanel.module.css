@@ -1,7 +1,14 @@
 @import '~utils/styles/variables.css';
 
 .actions-panel {
-    margin-bottom: var(--padding);
     display: flex;
     justify-content: flex-end;
+}
+
+.actions-panel:not(:last-child) {
+    margin-bottom: var(--padding);
+}
+
+.actions-panel__button:not(:last-child) {
+    margin-right: var(--padding);
 }

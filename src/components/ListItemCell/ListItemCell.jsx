@@ -7,14 +7,23 @@ const cn = _cn('list-cell', styles)
 
 const ListItemCell = ({
     children,
+    label,
 }) => (
     <div className={cn()}>
-        {children}
+        {label && (
+            <span className={cn('label')}>
+                {`${label}: `}
+            </span>
+        )}
+        <span className={cn('value')}>
+            {children}
+        </span>
     </div>
 )
 
 ListItemCell.propTypes = {
     children: PropTypes.node,
+    label: PropTypes.string,
 }
 
 export default ListItemCell
