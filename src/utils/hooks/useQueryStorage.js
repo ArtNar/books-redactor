@@ -15,7 +15,7 @@ export const useQueryStorage = (itemKey) => {
         getStorageData()
             .then((result) => {
                 if (result) {
-                    setData(result)
+                    setData(JSON.parse(result))
                 }
             })
             .catch((error) => setErrors(error))

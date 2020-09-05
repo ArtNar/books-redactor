@@ -1,6 +1,7 @@
 @import '~utils/styles/variables.css';
 
 .field-wrapper {
+    flex: 1;
     padding-bottom: calc(var(--padding) * 1.5);
 }
 

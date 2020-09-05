@@ -1,6 +1,5 @@
 import React        from 'react'
 import PropTypes    from 'prop-types'
-import cx           from 'classnames'
 import _cn          from 'utils/cn'
 import styles       from './ListItem.module.css'
 
@@ -13,11 +12,9 @@ const ListItem = ({
 }) => (
     <li
         {...rest}
-        className={cx(cn(), className)}
+        className={cn()}
     >
-        <div className={cn('text')}>
-            {children}
-        </div>
+        {children}
     </li>
 )
 

@@ -3,6 +3,7 @@ import PropTypes            from 'prop-types'
 import { LoadingState }     from 'components/LoadingState'
 import { List }             from 'components/List'
 import { ListItem }         from 'components/ListItem'
+import { ListItemCell }     from 'components/ListItemCell'
 import { Paper }            from 'components/Paper'
 
 const BookList = ({
@@ -15,11 +16,13 @@ const BookList = ({
             {list.length
                 ? (
                     <List>
-                        {list.map(({ id, name }) => (
+                        {list.map((item) => (
                             <ListItem
-                                key={id}
+                                key={item.id}
                             >
-                                {name}
+                                <ListItemCell>
+                                    {item.bookName}
+                                </ListItemCell>
                             </ListItem>
                         ))}
                     </List>

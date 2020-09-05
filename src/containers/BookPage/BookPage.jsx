@@ -1,5 +1,6 @@
 import React, { useMemo }               from 'react'
 import { useHistory }                   from 'react-router-dom'
+import uniqId                           from 'uniqid'
 import { getInitialValuesFromFields }   from 'utils/helpers/getInitialValuesFromFields'
 import { BookForm, fields }              from 'containers/BookForm'
 import { ActionsPanel }                 from 'components/ActionsPanel'
@@ -20,17 +21,26 @@ const BookPage = () => {
     const { data = [], loading } = useQueryStorage(BOOKS_STORAGE_PATH)
     const [saveData] = useMutationStorage(BOOKS_STORAGE_PATH)
 
-    const handleClickCancel = () => history.push('/')
+    const redirectToHomePage = () => history.push('/')
 
     const handleSubmit = async (values) => {
         try {
-            await saveData([])
+            await saveData([
+                ...data,
+                {
+                    id: values.id || uniqId(),
+                    ...values,
+                },
+            ])
+
+            redirectToHomePage()
         } catch (error) {
+            console.error(error)
         }
     }
 
-    const handleError = () => {
-        console.log('error')
+    const handleError = (error) => {
+        console.log(error, 'error')
     }
 
     const initialValues = useMemo(() => ({
@@ -41,7 +51,7 @@ const BookPage = () => {
         <>
             <ActionsPanel
                 actions={getActions({
-                    onCancel: handleClickCancel,
+                    onCancel: redirectToHomePage,
                 })}
             />
             <BookForm

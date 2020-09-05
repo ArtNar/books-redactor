@@ -12,6 +12,9 @@ export { bookName } from './bookName'
 export { amountOfPages } from './amountOfPages'
 export { publishingHouseName } from './publishingHouseName'
 export { releaseDate } from './releaseDate'
+export { isbn } from './isbn'
+export { authorName } from './authorName'
+export { arrayOf } from './array'
 export {
     number,
     integer,

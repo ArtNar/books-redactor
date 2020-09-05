@@ -1,10 +1,11 @@
-import React            from 'react'
-import PropTypes        from 'prop-types'
-import { Button }       from 'components/Button'
-import { Form }         from 'components/forms/Form'
-import { TextField }    from 'components/forms/TextField'
-import { DateField }    from 'components/forms/DateField'
-import { NumberField }  from 'components/forms/NumberField'
+import React                from 'react'
+import PropTypes            from 'prop-types'
+import { Button }           from 'components/Button'
+import { Form }             from 'components/forms/Form'
+import { TextField }        from 'components/forms/TextField'
+import { DateField }        from 'components/forms/DateField'
+import { NumberField }      from 'components/forms/NumberField'
+import { AuthorFieldArray } from 'components/forms/AuthorFieldArray'
 
 const BookFormView = ({
     values,
@@ -33,10 +34,9 @@ const BookFormView = ({
                 label="Название"
                 name="bookName"
             />
-            <TextField
+            <AuthorFieldArray
                 {...fieldProps}
-                label="Список авторов"
-                name="name"
+                name="authors"
             />
             <NumberField
                 {...fieldProps}

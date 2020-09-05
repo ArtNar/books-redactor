@@ -3,6 +3,10 @@ import * as Yup from 'yup'
 export const getValidationSchemaFromFields = (fields) => {
     const result = {}
 
+    if (Array.isArray(fields)) {
+        return Yup.array().of(getValidationSchemaFromFields(fields[0]))
+    }
+
     Object.keys(fields).forEach((key) => {
         const field = fields[key]
 

@@ -17,6 +17,8 @@ const BooksPage = () => {
     const history = useHistory()
     const { data = [], loading } = useQueryStorage(BOOKS_STORAGE_PATH)
 
+    console.log(data, 'data')
+
     const handleClickCreateBook = () => history.push('/create')
 
     return (

@@ -4,8 +4,9 @@ import {
     publishingHouseName,
     publishYear,
     releaseDate,
-    // isbn,
+    isbn,
 } from 'utils/validation'
+import { authorInformationFields } from 'components/forms/AuthorInformation'
 
 export default {
     bookName: {
@@ -36,6 +37,7 @@ export default {
     isbn: {
         name: 'isbn',
         defaultValue: '',
-        validationRule: publishingHouseName,
+        validationRule: isbn,
     },
+    authors: [authorInformationFields],
 }
