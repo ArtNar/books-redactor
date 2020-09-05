@@ -1,0 +1,13 @@
+@import '~utils/styles/variables.css';
+
+.file-input {
+
+}
+
+.file-input__inner {
+
+}
+
+.file-input__label {
+    padding-bottom: calc(var(--padding) / 2);
+}

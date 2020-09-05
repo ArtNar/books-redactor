@@ -1,0 +1,6 @@
+@import '~utils/styles/variables.css';
+
+.field-error {
+    font-size: var(--font-size-s);
+    color: var(--color-error);
+}

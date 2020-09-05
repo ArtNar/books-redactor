@@ -3,6 +3,7 @@ import React            from 'react'
 import PropTypes        from 'prop-types'
 import cx               from 'classnames'
 import _cn              from 'utils/cn'
+import { FieldError }   from 'components/FieldError'
 import styles           from './Input.module.css'
 
 const cn = _cn('input', styles)
@@ -74,11 +75,7 @@ const Input = ({
                     onClick={handleClick}
                 />
             </div>
-            {error && (
-                <span className={cn('error')}>
-                    {error}
-                </span>
-            )}
+            <FieldError error={error} />
         </div>
     )
 }

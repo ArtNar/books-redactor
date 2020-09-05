@@ -5,6 +5,7 @@ import {
     publishYear,
     releaseDate,
     isbn,
+    image,
 } from 'utils/validation'
 import { authorInformationFields } from 'components/forms/AuthorInformation'
 
@@ -38,6 +39,11 @@ export default {
         name: 'isbn',
         defaultValue: '',
         validationRule: isbn,
+    },
+    image: {
+        name: 'image',
+        defaultValue: null,
+        validationRule: image,
     },
     authors: [authorInformationFields],
 }

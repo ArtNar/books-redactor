@@ -11,4 +11,6 @@ export const messages = {
     tooLong: (value = 0) => `Значение должно быть максимум ${value} ${declOfNum(value, ['символ', 'символа', 'символов'])}`,
     min: (value = 0) => `Минимальное значение - ${value}`,
     max: (value = 0) => `Максимальное значение - ${value}`,
+    fileTooLarge: (size = 0) => `Максимальный размер файла - ${size}`,
+    unsupportedFormat: (formats = []) => `Разрешенные форматы - ${formats.join(', ')}`,
 }

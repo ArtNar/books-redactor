@@ -6,6 +6,7 @@ import { TextField }        from 'components/forms/TextField'
 import { DateField }        from 'components/forms/DateField'
 import { NumberField }      from 'components/forms/NumberField'
 import { AuthorFieldArray } from 'components/forms/AuthorFieldArray'
+import { FileField }        from 'components/forms/FileField'
 
 const BookFormView = ({
     values,
@@ -29,6 +30,11 @@ const BookFormView = ({
 
     return (
         <Form onSubmit={handleSubmit}>
+            <FileField
+                {...fieldProps}
+                name="image"
+                label="Изображение"
+            />
             <TextField
                 {...fieldProps}
                 label="Название"
@@ -62,11 +68,6 @@ const BookFormView = ({
                 {...fieldProps}
                 label="ISBN"
                 name="isbn"
-            />
-            <TextField
-                {...fieldProps}
-                label="Изображение"
-                name="image"
             />
             <Button
                 type="submit"

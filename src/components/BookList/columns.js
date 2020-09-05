@@ -1,4 +1,14 @@
+import React from 'react'
+
 export default [
+    {
+        key: 'image',
+        render: ({ image }) => (
+            image
+                ? <img src={image} height="100" alt="" />
+                : null
+        ),
+    },
     {
         key: 'bookName',
         label: 'Название',

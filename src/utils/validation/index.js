@@ -15,6 +15,7 @@ export { releaseDate } from './releaseDate'
 export { isbn } from './isbn'
 export { authorName } from './authorName'
 export { arrayOf } from './array'
+export { image } from './image'
 export {
     number,
     integer,
