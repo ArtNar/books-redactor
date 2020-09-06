@@ -67,7 +67,7 @@ const BookPage = () => {
             ...getInitialValuesFromFields(fields),
             ...bookData,
         })
-    }, [fields, bookId, data])
+    }, [bookId, data])
 
     return (
         <>

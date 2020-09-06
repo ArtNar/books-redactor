@@ -51,7 +51,7 @@ const BaseFieldArray = withFieldArray(({
                 push({})
             }
         }
-    }, [])
+    }, [minFields, push, valuesArray.length])
 
     return (
         <FieldWrapper>

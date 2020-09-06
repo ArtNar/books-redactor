@@ -1,13 +1,13 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 
 export const useQueryStorage = (itemKey) => {
     const [data, setData] = useState(undefined)
     const [errors, setErrors] = useState(null)
     const [loading, setLoading] = useState(true)
 
-    const getStorageData = async () => localStorage.getItem(itemKey)
+    const getStorageData = useCallback(() => async () => localStorage.getItem(itemKey), [itemKey])
 
-    const fetchData = () => {
+    const fetchData = useCallback(() => {
         getStorageData()
             .then((result) => {
                 if (result) {
@@ -16,7 +16,7 @@ export const useQueryStorage = (itemKey) => {
             })
             .catch((error) => setErrors(error))
             .finally(() => setLoading(false))
-    }
+    }, [getStorageData])
 
     useEffect(() => {
         if (!itemKey) {
@@ -24,7 +24,7 @@ export const useQueryStorage = (itemKey) => {
         }
 
         fetchData()
-    }, [itemKey])
+    }, [itemKey, fetchData])
 
     return {
         data,
