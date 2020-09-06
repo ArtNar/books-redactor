@@ -58,12 +58,16 @@ const BooksPage = () => {
                     onCreate: handleClickCreateBook,
                 })}
             />
-            <Orderings
-                options={BOOKS_SORT_OPTIONS}
-                order={order}
-                setOrder={setOrder}
-                resetOrder={resetOrder}
-            />
+            {sortedBooks.length
+                ? (
+                    <Orderings
+                        options={BOOKS_SORT_OPTIONS}
+                        order={order}
+                        setOrder={setOrder}
+                        resetOrder={resetOrder}
+                    />
+                )
+                : null}
             <BookList
                 loading={loading}
                 list={sortedBooks}
