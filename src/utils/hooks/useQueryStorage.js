@@ -5,7 +5,7 @@ export const useQueryStorage = (itemKey) => {
     const [errors, setErrors] = useState(null)
     const [loading, setLoading] = useState(true)
 
-    const getStorageData = useCallback(() => async () => localStorage.getItem(itemKey), [itemKey])
+    const getStorageData = useCallback(async () => localStorage.getItem(itemKey), [itemKey])
 
     const fetchData = useCallback(() => {
         getStorageData()
