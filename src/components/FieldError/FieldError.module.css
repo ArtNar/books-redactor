@@ -1,6 +1,7 @@
 @import '~utils/styles/variables.css';
 
 .field-error {
+    margin: calc(var(--padding) / 2) 0;
     font-size: var(--font-size-s);
     color: var(--color-error);
 }

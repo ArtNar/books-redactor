@@ -10,9 +10,9 @@ const FieldError = ({
 }) => (
     error
         ? (
-            <span className={cn()}>
+            <div className={cn()}>
                 {error}
-            </span>
+            </div>
         )
         : null
 )

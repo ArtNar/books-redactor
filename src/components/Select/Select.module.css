@@ -1,0 +1,16 @@
+@import '~utils/styles/variables.css';
+
+.select {
+    display: inline-block;
+}
+
+.select__inner {
+    outline: 0;
+    border-radius: var(--border-radius);
+    border: var(--border-size) solid var(--color-control);
+    padding: calc(var(--padding) / 4);
+}
+
+.select__label {
+    margin-right: calc(var(--padding) / 2);
+}

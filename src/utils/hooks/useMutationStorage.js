@@ -3,7 +3,7 @@ export const useMutationStorage = (itemKey) => {
         try {
             localStorage.setItem(itemKey, JSON.stringify(value))
         } catch (error) {
-            console.error(error)
+            throw new Error('Недостаточно места в Local Storage')
         }
     }
 

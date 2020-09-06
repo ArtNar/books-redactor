@@ -20,15 +20,11 @@ const FileInput = ({
     const imgRef = useRef(null)
 
     const handleChange = ({ target: { files: inputValues } }) => {
-        const filesArray = [...Array.from(inputValues)]
+        const filesArray = Array.from(inputValues)
 
-        const fReader = new FileReader()
-        fReader.onload = () => {
-            if (onChange) {
-                onChange(fReader.result)
-            }
+        if (onChange) {
+            onChange(filesArray[0])
         }
-        fReader.readAsDataURL(filesArray[0])
     }
 
     const handleDelete = () => {
@@ -55,15 +51,25 @@ const FileInput = ({
     }
 
     useEffect(() => {
-        if (value) {
+        if (error) {
+            imgRef.current.src = ''
+            return
+        }
+
+        if (value instanceof File) {
+            const fReader = new FileReader()
+            fReader.onload = () => {
+                imgRef.current.src = fReader.result
+            }
+            fReader.readAsDataURL(value)
+        } else if (typeof value === 'string') {
             imgRef.current.src = value
         }
-    }, [value])
+    }, [value, error])
 
     return (
         <div className={cn()}>
             <input
-                className={cn('main-input')}
                 name={name}
                 ref={inputRef}
                 disabled={disabled}
@@ -71,29 +77,30 @@ const FileInput = ({
                 type="file"
                 hidden
             />
-            <div className={cn('inner')}>
+            <div>
                 {label && (
                     <div className={cn('label')}>{label}</div>
                 )}
-                {!disabled && !value && (
+                {!value && (
                     <Button
                         onClick={handleOpenDialog}
+                        disabled={disabled}
                     >
                         Загрузить
                     </Button>
                 )}
             </div>
             <img ref={imgRef} src="" height="200" alt="" />
-            <FieldError error={error} />
+            <div>
+                <FieldError error={error} />
+            </div>
             {value && (
-                <div className={cn('actions')}>
-                    <Button
-                        className={cn('action-button')}
-                        onClick={handleDelete}
-                    >
-                        Удалить
-                    </Button>
-                </div>
+                <Button
+                    onClick={handleDelete}
+                    disabled={disabled}
+                >
+                    Удалить
+                </Button>
             )}
         </div>
     )
@@ -106,7 +113,10 @@ FileInput.propTypes = {
     name: PropTypes.string,
     onChange: PropTypes.func,
     onDelete: PropTypes.func,
-    value: PropTypes.string,
+    value: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.shape({}),
+    ]),
 }
 
 export default FileInput

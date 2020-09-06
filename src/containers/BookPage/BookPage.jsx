@@ -16,6 +16,21 @@ const getActions = ({ onCancel }) => [
     },
 ]
 
+const prepareData = (data) => new Promise((resolve) => {
+    if (!data.image || typeof data.image === 'string') {
+        resolve(data)
+    }
+
+    const fReader = new FileReader()
+    fReader.onload = () => {
+        resolve({
+            ...data,
+            image: fReader.result,
+        })
+    }
+    fReader.readAsDataURL(data.image)
+})
+
 const BookPage = () => {
     const history = useHistory()
     const { bookId } = useParams()
@@ -25,40 +40,34 @@ const BookPage = () => {
     const redirectToHomePage = () => history.push('/')
 
     const handleSubmit = async (values) => {
-        if (loading) {
-            return
-        }
-
         const currentBookId = values.id || uniqId()
-        const newData = [
-            ...data.filter(({ id }) => id !== currentBookId),
-            {
-                id: currentBookId,
-                ...values,
-            },
-        ]
 
-        try {
-            await saveData(newData)
-
-            redirectToHomePage()
-        } catch (error) {
-            console.error(error)
-        }
+        return prepareData(values)
+            .then((newBookData) => ([
+                ...data.filter(({ id }) => id !== currentBookId),
+                {
+                    id: currentBookId,
+                    ...newBookData,
+                },
+            ]))
+            .then(saveData)
     }
 
     const handleError = (error) => {
-        console.log(error, 'error')
+        // TODO: Добавить вывод в Snackbar
+        alert(error)
     }
 
-    const bookData = bookId
-        ? data.find(({ id }) => id === bookId)
-        : {}
+    const initialValues = useMemo(() => {
+        const bookData = bookId
+            ? data.find(({ id }) => id === bookId)
+            : {}
 
-    const initialValues = useMemo(() => ({
-        ...getInitialValuesFromFields(fields),
-        ...bookData,
-    }), [fields, bookData])
+        return ({
+            ...getInitialValuesFromFields(fields),
+            ...bookData,
+        })
+    }, [fields, bookId, data])
 
     return (
         <>
@@ -71,6 +80,7 @@ const BookPage = () => {
                 initialValues={initialValues}
                 onSubmit={handleSubmit}
                 onError={handleError}
+                onFinish={redirectToHomePage}
                 disabled={loading}
             />
         </>

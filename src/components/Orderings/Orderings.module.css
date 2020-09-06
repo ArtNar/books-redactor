@@ -1,0 +1,9 @@
+@import '~utils/styles/variables.css';
+
+.orderings {
+    margin: var(--padding) 0;
+}
+
+.orderings__button {
+    margin-left: var(--padding);
+}

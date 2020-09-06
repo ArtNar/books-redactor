@@ -14,15 +14,19 @@ export const withFormik = ({
         try {
             const errors = await onSubmit(formData)
 
+            setSubmitting(false)
+
             if (errors && setErrors) {
                 setErrors(errors)
             } else if (onFinish) {
                 onFinish()
             }
         } catch (error) {
-            onError(`Ошибка сохранения: ${error}`)
-        } finally {
             setSubmitting(false)
+
+            if (onError) {
+                onError(`Ошибка сохранения: ${error.message}`)
+            }
         }
     },
     displayName,

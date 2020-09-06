@@ -20,7 +20,7 @@ export const useQueryStorage = (itemKey) => {
 
     useEffect(() => {
         if (!itemKey) {
-            return
+            throw new Error('You should provide path to data at localStorage')
         }
 
         fetchData()
